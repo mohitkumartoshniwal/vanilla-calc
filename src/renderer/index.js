@@ -50,6 +50,7 @@ function calculateExpression(value) {
 
 // window.addEventListener('keypress', (e) => { // ! keypress works only for printable characters
 window.addEventListener('keydown', (e) => {
+  e.preventDefault()
   let value = e.key
   if (allowedValues.includes(value)) {
     calculateExpression(value)
