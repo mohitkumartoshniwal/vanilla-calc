@@ -50,8 +50,12 @@ function calculateExpression(value) {
 
 // window.addEventListener('keypress', (e) => { // ! keypress works only for printable characters
 window.addEventListener('keydown', (e) => {
-  e.preventDefault()
+  // e.preventDefault()
   let value = e.key
+  console.log(value)
+  if (value === 'Enter') {
+    e.preventDefault() // Prevent the default behavior of the Enter key (e.g., form submission)
+  }
   if (allowedValues.includes(value)) {
     calculateExpression(value)
   }
