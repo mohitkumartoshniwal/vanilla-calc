@@ -1,5 +1,5 @@
 {
-  "name": "vanilla",
+  "name": "calculator-js",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "./src/main.js",

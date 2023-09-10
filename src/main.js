@@ -9,6 +9,8 @@ function createWindow() {
     width: 350,
     height: 410,
     show: false,
+    // maximizable: false,
+    resizable: false, // ! disable maximize and resizing of window
     autoHideMenuBar: true,
     ...(process.platform === 'linux'
       ? {
@@ -17,7 +19,8 @@ function createWindow() {
       : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      sandbox: false
+      sandbox: false,
+      devTools: !app.isPackaged // ! To distinguish between dev and prod envs
     }
   })
 

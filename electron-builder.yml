@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: vanilla
+productName: calculator-js
 directories:
   buildResources: build
 files:
@@ -8,7 +8,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: vanilla
+  executableName: calculator-js
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
