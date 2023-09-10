@@ -6,7 +6,7 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
     />
 
     <link href="./styles/style.css" type="text/css" rel="stylesheet" />
@@ -22,14 +22,16 @@
       <div class="row">
         <button data-value="C">C</button>
         <button data-value="%">%</button>
-        <button data-value="bx">bx</button>
+        <!-- <button data-value="bx">&blacktriangleleft;</button> -->
+        <!-- <button data-value="bx">&crarr;</button> -->
+        <button data-value="Backspace">&DoubleLeftArrow;</button>
         <button data-value="/">/</button>
       </div>
       <div class="row">
         <button data-value="7">7</button>
         <button data-value="8">8</button>
         <button data-value="9">9</button>
-        <button data-value="x">x</button>
+        <button data-value="*">*</button>
       </div>
       <div class="row">
         <button data-value="4">4</button>
@@ -44,7 +46,7 @@
         <button data-value="-">-</button>
       </div>
       <div class="row">
-        <button data-value="^">^</button>
+        <button data-value="**">**</button>
         <button data-value="0">0</button>
         <button data-value=".">.</button>
         <button data-value="=">=</button>

@@ -1,75 +1,57 @@
-let operators = ['+', '-', 'x', '/', '%', '=', 'C', '.', '^']
-
-let result = 0
-let lastOperator = ''
-let lastValue = ''
-let initialStart = false
+let expression = ''
+let allowedValues = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '+',
+  '-',
+  '*',
+  '/',
+  '=',
+  '.',
+  'C',
+  'Enter',
+  'Backspace',
+  'Delete'
+]
 
 let container = document.querySelector('.container')
 let resultEl = document.querySelector('.result')
 
 container.addEventListener('click', (e) => {
-  debugger
-
   let value = e.target.dataset.value
   if (value) {
-    if (operators.includes(value)) {
-      if (value === '+') {
-        lastOperator = value
-      } else if (value === '-') {
-        lastOperator = value
-      } else if (value === 'x') {
-        lastOperator = value
-      } else if (value === '/') {
-        lastOperator = value
-      } else if (value === '%') {
-        lastOperator = value
-      } else if (value === 'C') {
-        result = 0
-      } else if (value === '.') {
-        lastOperator = '.'
-      } else if (value === '^') {
-        lastOperator = '^'
-      } else if (value === '=') {
-        // TODO
-        // lastOperator = '^'
-      }
-      if (!initialStart) {
-        calculateResult(lastValue)
-        initialStart = true
-      }
-    } else if (lastOperator !== '') {
-      calculateResult(value)
-      lastOperator = ''
-    } else {
-      lastValue = lastValue + value
-      resultEl.textContent = lastValue
-    }
+    calculateExpression(value)
   }
 })
 
-function calculateResult(value) {
-  debugger
-  if (lastOperator === '+') {
-    result = result + Number(value)
-  } else if (lastOperator === '-') {
-    result = result - Number(value)
-  } else if (lastOperator === 'x') {
-    result = result * Number(value)
-  } else if (lastOperator === '/') {
-    result = result / Number(value)
-  } else if (lastOperator === '%') {
-    result = result % Number(value)
-  } else if (lastOperator === '^') {
-    result = result ^ Number(value)
+function calculateExpression(value) {
+  if (value === 'C') {
+    expression = ''
+  } else if (value === '=' || value === 'Enter') {
+    // expression = eval(expression).toFixed(2)
+    expression = `${eval(expression)}`
+  } else if (value === 'Backspace' || value === 'Delete') {
+    // expression = expression.slice(0, -1)
+    expression = expression.substring(0, expression.length - 1)
+    // expression = expression.slice(0, -1)
+  } else {
+    expression = expression + value
   }
-  resultEl.textContent = result
+  resultEl.textContent = expression
 }
 
-// function doAThing() {
-//   const versions = window.electron.process.versions
-//   replaceText('.electron-version', `Electron v${versions.electron}`)
-//   replaceText('.chrome-version', `Chromium v${versions.chrome}`)
-//   replaceText('.node-version', `Node v${versions.node}`)
-//   replaceText('.v8-version', `V8 v${versions.v8}`)
-// }
+// window.addEventListener('keypress', (e) => { // ! keypress works only for printable characters
+window.addEventListener('keydown', (e) => {
+  let value = e.key
+  if (allowedValues.includes(value)) {
+    calculateExpression(value)
+  }
+})

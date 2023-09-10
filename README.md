@@ -1,34 +1,7 @@
-# vanilla
+https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
 
-A minimal Electron application
+https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values
 
-## Recommended IDE Setup
+https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-## Project Setup
-
-### Install
-
-```bash
-$ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
